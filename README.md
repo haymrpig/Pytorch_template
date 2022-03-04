@@ -6,8 +6,6 @@ pytorch basic template for AI
 
 # Description
 
-------
-
 This repository provides simple template for AI models.
 
 You can see the structure [here](#structure)
@@ -39,8 +37,6 @@ You can see the outputs [here](#outputs)
 ```
 
 # How to use
-
-------
 
 - **Moderate config.cfg**
 
