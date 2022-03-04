@@ -112,7 +112,7 @@ You can see the outputs [here](#outputs)
 
 - **experiment**
 
-  This directory can be checked after running the code. pth files will be saved here.
+  This directory can be checked after running the code. pt files will be saved here.
 
   (pth files are saved every epochs and best_pth file will be included as {model_name}_best_model.pt)
 
