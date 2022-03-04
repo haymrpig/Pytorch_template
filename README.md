@@ -4,19 +4,19 @@ pytorch basic template for AI
 
 
 
-#### Description
+# Description
 
 ------
 
 This repository provides simple template for AI models.
 
-You can see the structure [here](#4structure)
+You can see the structure [here](#structure)
 
-You can see the way to use [here](#4how-to-use)
+You can see the way to use [here](#how-to-use)
 
-You can see the outputs [here](#4outputs)
+You can see the outputs [here](#outputs)
 
-#### Structure
+# Structure
 
 ```bash
 ├──── baseline
@@ -38,7 +38,7 @@ You can see the outputs [here](#4outputs)
 
 ```
 
-#### How to use
+# How to use
 
 ------
 
@@ -108,7 +108,7 @@ You can see the outputs [here](#4outputs)
 
 
 
-#### Outputs
+# Outputs
 
 - **Log**
 
