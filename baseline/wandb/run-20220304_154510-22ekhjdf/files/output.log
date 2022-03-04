@@ -1,0 +1,47 @@
+
+INFO:timm.models.helpers:Loading pretrained weights from url (https://imvl-automl-sh.oss-cn-shanghai.aliyuncs.com/darts/hyperml/hyperml/job_45403/outputs/effnetb3_pruned_5abcc29f.pth)
+  0%|                                                                                                                                                                            | 0/10 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INFO:root:████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 265/265 [00:56<00:00,  4.64it/s]
+Start validation....wait.....
+INFO:root:
+Validation #1  Accuracy: 77.02%  Average Loss: 0.3470 f1 score: 0.5732
+INFO:root:Val F1 improved from 0.000 -> 0.573
+INFO:root:Save model in /opt/ml/baseline/experiments/exp/2022-03-04_15:45:19 as efficientnet_b3_pruned_best_model.pt....
+ 10%|████████████████▍                                                                                                                                                   | 1/10 [01:02<09:18, 62.11s/it]
+
+
+
+
+
+
+
+
+
+

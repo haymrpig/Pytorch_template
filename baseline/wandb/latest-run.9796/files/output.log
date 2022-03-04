@@ -1,0 +1,53 @@
+INFO:timm.models.helpers:Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/efficientnet_b3_ra2-cf984f9c.pth)
+Traceback (most recent call last):
+  File "train.py", line 109, in <module>
+    main(config, logger)
+  File "train.py", line 54, in main
+    model = callModel(model_, pretrained, classes, freeze).to(device)
+  File "/opt/ml/Pytorch_template/baseline/models/model.py", line 13, in callModel
+    model = timm.create_model(model, pretrained=pretrained, num_classes=num_classes)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/timm/models/factory.py", line 74, in create_model
+    model = create_fn(pretrained=pretrained, **kwargs)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/timm/models/efficientnet.py", line 1380, in efficientnet_b3
+    model = _gen_efficientnet(
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/timm/models/efficientnet.py", line 844, in _gen_efficientnet
+    model = _create_effnet(variant, pretrained, **model_kwargs)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/timm/models/efficientnet.py", line 594, in _create_effnet
+    model = build_model_with_cfg(
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/timm/models/helpers.py", line 465, in build_model_with_cfg
+    load_pretrained(
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/timm/models/helpers.py", line 189, in load_pretrained
+    state_dict = load_state_dict_from_url(pretrained_url, progress=progress, map_location='cpu')
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/hub.py", line 590, in load_state_dict_from_url
+    return torch.load(cached_file, map_location=map_location)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/serialization.py", line 608, in load
+    return _legacy_load(opened_file, map_location, pickle_module, **pickle_load_args)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/serialization.py", line 794, in _legacy_load
+    deserialized_objects[key]._set_from_file(f, offset, f_should_read_directly)
+RuntimeError: unexpected EOF, expected 898 more bytes. The file might be corrupted.
+Traceback (most recent call last):
+  File "train.py", line 109, in <module>
+    main(config, logger)
+  File "train.py", line 54, in main
+    model = callModel(model_, pretrained, classes, freeze).to(device)
+  File "/opt/ml/Pytorch_template/baseline/models/model.py", line 13, in callModel
+    model = timm.create_model(model, pretrained=pretrained, num_classes=num_classes)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/timm/models/factory.py", line 74, in create_model
+    model = create_fn(pretrained=pretrained, **kwargs)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/timm/models/efficientnet.py", line 1380, in efficientnet_b3
+    model = _gen_efficientnet(
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/timm/models/efficientnet.py", line 844, in _gen_efficientnet
+    model = _create_effnet(variant, pretrained, **model_kwargs)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/timm/models/efficientnet.py", line 594, in _create_effnet
+    model = build_model_with_cfg(
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/timm/models/helpers.py", line 465, in build_model_with_cfg
+    load_pretrained(
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/timm/models/helpers.py", line 189, in load_pretrained
+    state_dict = load_state_dict_from_url(pretrained_url, progress=progress, map_location='cpu')
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/hub.py", line 590, in load_state_dict_from_url
+    return torch.load(cached_file, map_location=map_location)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/serialization.py", line 608, in load
+    return _legacy_load(opened_file, map_location, pickle_module, **pickle_load_args)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/serialization.py", line 794, in _legacy_load
+    deserialized_objects[key]._set_from_file(f, offset, f_should_read_directly)
+RuntimeError: unexpected EOF, expected 898 more bytes. The file might be corrupted.

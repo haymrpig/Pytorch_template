@@ -1,3 +1,4 @@
+import cv2
 import torch
 import numpy as np
 import albumentations as A
@@ -18,14 +19,14 @@ class myDataset(Dataset):
     def __getitem__(self, idx):
         image = self.all_data[idx]
         label = self.label[idx]
-
         image = np.array(Image.open(image)) 
         
+        #image = cv2.imread(image, cv2.IMREAD_COLOR)
+        #image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         if self.transform:
             image = self.transform(image=image)["image"]
         
         label = torch.tensor(label)
-
         return image, label
 
     def __len__(self):
@@ -80,12 +81,11 @@ class myDataset(Dataset):
 
 
 def train_transform(config):
-    
     return A.Compose([
                     A.CenterCrop(height=int(512*0.9), width=int(384*0.9), p=1),
                     A.ShiftScaleRotate(scale_limit=0, shift_limit=0.02, rotate_limit=0, p=0.5),
                     A.HorizontalFlip(p=0.5),
-                    A.Resize(width=config["img_shape"].split(',')[0], height=config["img_shape"].split(',')[1]),
+                    A.Resize(width=int(config['net']["img_shape"].split(',')[0]), height=int(config['net']["img_shape"].split(',')[1])),
                     A.Normalize(
                         mean=[0.56, 0.524, 0.501],
                         std=[0.258, 0.265, 0.267],
@@ -96,7 +96,7 @@ def train_transform(config):
 def val_transform(config):
     return A.Compose([
                     A.CenterCrop(height=int(512*0.9), width=int(384*0.9), p=1),
-                    A.Resize(width=config["img_shape"].split(',')[0], height=config["img_shape"].split(',')[1]),
+                    A.Resize(width=int(config['net']["img_shape"].split(',')[0]), height=int(config['net']["img_shape"].split(',')[1])),
                     A.Normalize(
                         mean=[0.56, 0.524, 0.501],
                         std=[0.258, 0.265, 0.267],

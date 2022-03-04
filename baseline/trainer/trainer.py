@@ -35,7 +35,7 @@ class Trainer:
     def train(self):
         
         time_stamp = '_'.join(time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime()).split(' '))
-        path = os.path.join(self.config['path']['base_path'],self.config["path"]["save_dir"], time_stamp)
+        path = os.path.join(self.config['path']['current_path'],self.config["path"]["save_dir"], time_stamp)
         os.makedirs(path, exist_ok=True)
 
         self.model.train()
@@ -45,7 +45,7 @@ class Trainer:
         best_loss = 9999999
 
         early_stop_counter = 0
-        early_stop_limit = 15
+        early_stop_limit = self.config['train']['early_stopping']
 
         for epoch in tqdm(range(self.epoch), total=self.epoch):
             cnt = 0
@@ -72,6 +72,7 @@ class Trainer:
             train_avrg_loss = total_loss / cnt
             train_acc = correct / num_samples * 100
 
+            self.logger.info('\n>>>>>>>>>> Train #{}  Accuracy: {:.2f}%  Average Loss: {:.4f}'.format(epoch+1, train_acc, train_avrg_loss ))
             val_loss, val_acc, f1 = self.validation(epoch + 1)
             torch.save(self.model.state_dict(), f"{path}/epoch_{epoch}_loss_{val_loss:.3f}_acc_{val_acc:.3f}_f1_{f1:.3f}.pt")
             # 모든 모델 저장하기 위함
@@ -82,7 +83,7 @@ class Trainer:
             if best_f1 < f1:
                 trigger_time = 0
                 self.logger.info(f'Val F1 improved from {best_f1:.3f} -> {f1:.3f}')
-                self.logger.info(f"Save model in {path} as {self.config['net']['model']}best_model.pt....")
+                self.logger.info(f"Save model in {path} as {self.config['net']['model']}_best_model.pt....")
                 wandb.run.summary["Best F1"] = f1
 
                 best_f1 = f1
@@ -93,10 +94,10 @@ class Trainer:
                 early_stop_counter = 0
             else:
                 early_stop_counter+=1
-                self.logger.info(f'Val F1 did not improved from {best_f1:.3f}.. early stopping counter {early_stop_counter} / {early_stop_limit}')
+                self.logger.info(f'\n>>>>>>>>>> Val F1 did not improved from {best_f1:.3f}.. early stopping counter {early_stop_counter} / {early_stop_limit}')
 
                 if early_stop_counter > early_stop_limit:
-                    self.logger.info(f'Early stopped!!!!!!!!!!!!!!!')
+                    self.logger.info(f'\n>>>>>>>>>> Early stopped!!!!!!!!!!!!!!!')
                     break
 
             if self.lr_scheduler:
@@ -105,7 +106,7 @@ class Trainer:
             
 
     def validation(self, epoch):
-        self.logger.info(f'Start validation....wait.....')
+        self.logger.info(f'\n>>>>>>>>>> Start validation....wait.....')
 
         self.model.eval()
         with torch.no_grad():
@@ -114,7 +115,7 @@ class Trainer:
             total_loss = 0
             num_samples = 0
             all_preds, all_labels =[], []
-            for i, (imgs, labels) in enumerate(self.dataloaders["val"]):
+            for i, (imgs, labels) in enumerate(tqdm(self.dataloaders["val"], total=len(self.dataloaders['val']))):
                 imgs, labels = imgs.to(self.device), labels.to(self.device)
                 
                 outputs = self.model(imgs)
@@ -136,7 +137,7 @@ class Trainer:
             all_labels = np.concatenate(all_labels, axis=0)
             f1 = f1_score(all_labels, all_preds, average='macro')
 
-            self.logger(f'Validation #{epoch}  Accuracy: {acc:.2f}%  Average Loss: {avrg_loss:.4f} f1 score: {f1:.4f}')
+            self.logger.info(f'\n>>>>>>>>>> Validation #{epoch}  Accuracy: {acc:.2f}%  Average Loss: {avrg_loss:.4f} f1 score: {f1:.4f}')
         
         self.model.train()
         

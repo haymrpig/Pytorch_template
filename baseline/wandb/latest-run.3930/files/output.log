@@ -1,0 +1,22 @@
+INFO:timm.models.helpers:Loading pretrained weights from url (https://download.pytorch.org/models/resnet18-5c106cde.pth)
+Downloading: "https://download.pytorch.org/models/resnet18-5c106cde.pth" to /opt/ml/.cache/torch/hub/checkpoints/resnet18-5c106cde.pth
+Traceback (most recent call last):
+  File "train.py", line 104, in <module>
+    main(config, logger)
+  File "train.py", line 55, in main
+    transform = {"train":train_transform(config), "val":val_transform(config)}
+  File "/opt/ml/Pytorch_template/baseline/dataset/dataset.py", line 88, in train_transform
+    A.Resize(width=config["img_shape"].split(',')[0], height=config["img_shape"].split(',')[1]),
+  File "/opt/conda/envs/hong1/lib/python3.8/configparser.py", line 960, in __getitem__
+    raise KeyError(key)
+KeyError: 'img_shape'
+Traceback (most recent call last):
+  File "train.py", line 104, in <module>
+    main(config, logger)
+  File "train.py", line 55, in main
+    transform = {"train":train_transform(config), "val":val_transform(config)}
+  File "/opt/ml/Pytorch_template/baseline/dataset/dataset.py", line 88, in train_transform
+    A.Resize(width=config["img_shape"].split(',')[0], height=config["img_shape"].split(',')[1]),
+  File "/opt/conda/envs/hong1/lib/python3.8/configparser.py", line 960, in __getitem__
+    raise KeyError(key)
+KeyError: 'img_shape'

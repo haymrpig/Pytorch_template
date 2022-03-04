@@ -1,0 +1,121 @@
+
+INFO:timm.models.helpers:Loading pretrained weights from url (https://download.pytorch.org/models/resnet18-5c106cde.pth)
+  0%|                                                                                                                                                                            | 0/10 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INFO:root:Start validation....wait.....███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 132/132 [00:55<00:00,  2.29it/s]
+  0%|                                                                                                                                                                            | 0/10 [00:55<?, ?it/s]
+Traceback (most recent call last):
+  File "train.py", line 109, in <module>
+    main(config, logger)
+  File "train.py", line 79, in main
+    trainer.train()
+  File "/opt/ml/Pytorch_template/baseline/trainer/trainer.py", line 75, in train
+    val_loss, val_acc, f1 = self.validation(epoch + 1)
+  File "/opt/ml/Pytorch_template/baseline/trainer/trainer.py", line 117, in validation
+    for i, (imgs, labels) in enumerate(self.dataloaders["val"]):
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1203, in _next_data
+    return self._process_data(data)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1229, in _process_data
+    data.reraise()
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/_utils.py", line 434, in reraise
+    raise exception
+cv2.error: Caught error in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/utils/data/_utils/worker.py", line 287, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/opt/ml/Pytorch_template/baseline/dataset/dataset.py", line 27, in __getitem__
+    image = self.transform(image=image)["image"]
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/albumentations/core/composition.py", line 210, in __call__
+    data = t(force_apply=force_apply, **data)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/albumentations/core/transforms_interface.py", line 97, in __call__
+    return self.apply_with_params(params, **kwargs)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/albumentations/core/transforms_interface.py", line 112, in apply_with_params
+    res[key] = target_function(arg, **dict(params, **target_dependencies))
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/albumentations/augmentations/geometric/resize.py", line 177, in apply
+    return F.resize(img, height=self.height, width=self.width, interpolation=interpolation)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/albumentations/augmentations/functional.py", line 70, in wrapped_function
+    result = func(img, *args, **kwargs)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/albumentations/augmentations/geometric/functional.py", line 277, in resize
+    return resize_fn(img)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/albumentations/augmentations/functional.py", line 189, in __process_fn
+    img = process_fn(img, **kwargs)
+cv2.error: OpenCV(4.5.5) :-1: error: (-5:Bad argument) in function 'resize'
+> Overload resolution failed:
+>  - Can't parse 'dsize'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'dsize'. Sequence item with index 0 has a wrong type
+Traceback (most recent call last):
+  File "train.py", line 109, in <module>
+    main(config, logger)
+  File "train.py", line 79, in main
+    trainer.train()
+  File "/opt/ml/Pytorch_template/baseline/trainer/trainer.py", line 75, in train
+    val_loss, val_acc, f1 = self.validation(epoch + 1)
+  File "/opt/ml/Pytorch_template/baseline/trainer/trainer.py", line 117, in validation
+    for i, (imgs, labels) in enumerate(self.dataloaders["val"]):
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 521, in __next__
+    data = self._next_data()
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1203, in _next_data
+    return self._process_data(data)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1229, in _process_data
+    data.reraise()
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/_utils.py", line 434, in reraise
+    raise exception
+cv2.error: Caught error in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/utils/data/_utils/worker.py", line 287, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 49, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/opt/ml/Pytorch_template/baseline/dataset/dataset.py", line 27, in __getitem__
+    image = self.transform(image=image)["image"]
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/albumentations/core/composition.py", line 210, in __call__
+    data = t(force_apply=force_apply, **data)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/albumentations/core/transforms_interface.py", line 97, in __call__
+    return self.apply_with_params(params, **kwargs)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/albumentations/core/transforms_interface.py", line 112, in apply_with_params
+    res[key] = target_function(arg, **dict(params, **target_dependencies))
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/albumentations/augmentations/geometric/resize.py", line 177, in apply
+    return F.resize(img, height=self.height, width=self.width, interpolation=interpolation)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/albumentations/augmentations/functional.py", line 70, in wrapped_function
+    result = func(img, *args, **kwargs)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/albumentations/augmentations/geometric/functional.py", line 277, in resize
+    return resize_fn(img)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/albumentations/augmentations/functional.py", line 189, in __process_fn
+    img = process_fn(img, **kwargs)
+cv2.error: OpenCV(4.5.5) :-1: error: (-5:Bad argument) in function 'resize'
+> Overload resolution failed:
+>  - Can't parse 'dsize'. Sequence item with index 0 has a wrong type
+>  - Can't parse 'dsize'. Sequence item with index 0 has a wrong type

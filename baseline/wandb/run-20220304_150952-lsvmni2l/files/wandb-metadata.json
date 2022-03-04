@@ -1,0 +1,27 @@
+{
+    "os": "Linux-4.4.0-59-generic-x86_64-with-glibc2.17",
+    "python": "3.8.12",
+    "heartbeatAt": "2022-03-04T15:09:53.427639",
+    "startedAt": "2022-03-04T15:09:52.552111",
+    "docker": null,
+    "gpu": "Tesla V100-PCIE-32GB",
+    "gpu_count": 1,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [
+        "--config",
+        "config.cfg"
+    ],
+    "state": "running",
+    "program": "train.py",
+    "codePath": "baseline/train.py",
+    "git": {
+        "remote": "https://github.com/haymrpig/Pytorch_template.git",
+        "commit": "46abcd2f8726e9e60f21fd9363626c37fd5d3ff0"
+    },
+    "email": null,
+    "root": "/opt/ml/Pytorch_template",
+    "host": "363a82757b16",
+    "username": "root",
+    "executable": "/opt/conda/envs/hong1/bin/python"
+}

@@ -1,0 +1,53 @@
+INFO:timm.models.helpers:Loading pretrained weights from url (https://imvl-automl-sh.oss-cn-shanghai.aliyuncs.com/darts/hyperml/hyperml/job_45403/outputs/effnetb3_pruned_5abcc29f.pth)
+Downloading: "https://imvl-automl-sh.oss-cn-shanghai.aliyuncs.com/darts/hyperml/hyperml/job_45403/outputs/effnetb3_pruned_5abcc29f.pth" to /opt/ml/.cache/torch/hub/checkpoints/effnetb3_pruned_5abcc29f.pth
+  0%|                                                                                                                                                                                                                                         | 0/10 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INFO:root:Start validation....wait.....████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 265/265 [00:55<00:00,  5.09it/s]
+  0%|                                                                                                                                                                                                                                         | 0/10 [01:00<?, ?it/s]
+Traceback (most recent call last):
+  File "train.py", line 109, in <module>
+    main(config, logger)
+  File "train.py", line 79, in main
+    trainer.train()
+  File "/opt/ml/Pytorch_template/baseline/trainer/trainer.py", line 75, in train
+    val_loss, val_acc, f1 = self.validation(epoch + 1)
+  File "/opt/ml/Pytorch_template/baseline/trainer/trainer.py", line 139, in validation
+    self.logger(f'Validation #{epoch}  Accuracy: {acc:.2f}%  Average Loss: {avrg_loss:.4f} f1 score: {f1:.4f}')
+TypeError: 'RootLogger' object is not callable
+Traceback (most recent call last):
+  File "train.py", line 109, in <module>
+    main(config, logger)
+  File "train.py", line 79, in main
+    trainer.train()
+  File "/opt/ml/Pytorch_template/baseline/trainer/trainer.py", line 75, in train
+    val_loss, val_acc, f1 = self.validation(epoch + 1)
+  File "/opt/ml/Pytorch_template/baseline/trainer/trainer.py", line 139, in validation
+    self.logger(f'Validation #{epoch}  Accuracy: {acc:.2f}%  Average Loss: {avrg_loss:.4f} f1 score: {f1:.4f}')
+TypeError: 'RootLogger' object is not callable

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "train.py", line 104, in <module>
+    main(config, logger)
+  File "train.py", line 49, in main
+    model = callModel(model_, pretrained, classes, freeze).to(device)
+TypeError: 'module' object is not callable
+Traceback (most recent call last):
+  File "train.py", line 104, in <module>
+    main(config, logger)
+  File "train.py", line 49, in main
+    model = callModel(model_, pretrained, classes, freeze).to(device)
+TypeError: 'module' object is not callable

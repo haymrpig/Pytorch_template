@@ -1,0 +1,27 @@
+2022-03-04 15:45:10,019 INFO    MainThread:12349 [wandb_setup.py:_flush():75] Loading settings from /opt/ml/.config/wandb/settings
+2022-03-04 15:45:10,020 INFO    MainThread:12349 [wandb_setup.py:_flush():75] Loading settings from /opt/ml/Pytorch_template/baseline/wandb/settings
+2022-03-04 15:45:10,020 INFO    MainThread:12349 [wandb_setup.py:_flush():75] Loading settings from environment variables: {}
+2022-03-04 15:45:10,020 INFO    MainThread:12349 [wandb_setup.py:_flush():75] Inferring run settings from compute environment: {'program_relpath': 'baseline/train.py', 'program': 'train.py'}
+2022-03-04 15:45:10,020 INFO    MainThread:12349 [wandb_init.py:_log_setup():405] Logging user logs to /opt/ml/Pytorch_template/baseline/wandb/run-20220304_154510-22ekhjdf/logs/debug.log
+2022-03-04 15:45:10,020 INFO    MainThread:12349 [wandb_init.py:_log_setup():406] Logging internal logs to /opt/ml/Pytorch_template/baseline/wandb/run-20220304_154510-22ekhjdf/logs/debug-internal.log
+2022-03-04 15:45:10,020 INFO    MainThread:12349 [wandb_init.py:init():439] calling init triggers
+2022-03-04 15:45:10,020 INFO    MainThread:12349 [wandb_init.py:init():442] wandb.init called with sweep_config: {}
+config: {}
+2022-03-04 15:45:10,020 INFO    MainThread:12349 [wandb_init.py:init():492] starting backend
+2022-03-04 15:45:10,021 INFO    MainThread:12349 [backend.py:_multiprocessing_setup():99] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2022-03-04 15:45:10,032 INFO    MainThread:12349 [backend.py:ensure_launched():219] starting backend process...
+2022-03-04 15:45:10,041 INFO    MainThread:12349 [backend.py:ensure_launched():224] started backend process with pid: 12386
+2022-03-04 15:45:10,042 INFO    MainThread:12349 [wandb_init.py:init():501] backend started and connected
+2022-03-04 15:45:10,048 INFO    MainThread:12349 [wandb_init.py:init():565] updated telemetry
+2022-03-04 15:45:10,065 INFO    MainThread:12349 [wandb_init.py:init():596] communicating run to backend with 30 second timeout
+2022-03-04 15:45:10,821 INFO    MainThread:12349 [wandb_run.py:_on_init():1759] communicating current version
+2022-03-04 15:45:10,856 INFO    MainThread:12349 [wandb_run.py:_on_init():1763] got version response 
+2022-03-04 15:45:10,857 INFO    MainThread:12349 [wandb_init.py:init():625] starting run threads in backend
+2022-03-04 15:45:15,862 INFO    MainThread:12349 [wandb_run.py:_console_start():1733] atexit reg
+2022-03-04 15:45:15,862 INFO    MainThread:12349 [wandb_run.py:_redirect():1606] redirect: SettingsConsole.REDIRECT
+2022-03-04 15:45:15,863 INFO    MainThread:12349 [wandb_run.py:_redirect():1611] Redirecting console.
+2022-03-04 15:45:15,865 INFO    MainThread:12349 [wandb_run.py:_redirect():1667] Redirects installed.
+2022-03-04 15:45:15,865 INFO    MainThread:12349 [wandb_init.py:init():664] run started, returning control to user process
+2022-03-04 15:45:15,866 INFO    MainThread:12349 [wandb_run.py:_config_callback():992] config_cb None None {'Model': 'efficientnet_b3_pruned', 'Metric': 'None', 'Criterion': 'FocalLoss', 'Optimizer': 'Adam', 'Batch size': '64', 'Learning rate': '0.0001', 'Image shape': '224,224'}
+2022-03-04 15:46:44,133 INFO    MainThread:12349 [wandb_run.py:_atexit_cleanup():1702] got exitcode: 255
+2022-03-04 15:46:44,135 INFO    MainThread:12349 [wandb_run.py:_restore():1674] restore

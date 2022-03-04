@@ -1,0 +1,64 @@
+
+INFO:timm.models.helpers:Loading pretrained weights from url (https://imvl-automl-sh.oss-cn-shanghai.aliyuncs.com/darts/hyperml/hyperml/job_45403/outputs/effnetb3_pruned_5abcc29f.pth)
+  0%|                                                                                                                                                                                                                                         | 0/10 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INFO:root:█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 265/265 [00:55<00:00,  4.76it/s]
+>>>>>>> Train #1  Accuracy: 85.87%  Average Loss: 0.2952
+INFO:root:
+>>>>>>> Start validation....wait.....
+INFO:root:
+>>>>>>> Validation #1  Accuracy: 77.02%  Average Loss: 0.3470 f1 score: 0.5732
+  0%|                                                                                                                                                                                                                                         | 0/10 [01:00<?, ?it/s]
+Traceback (most recent call last):
+  File "train.py", line 109, in <module>
+    main(config, logger)
+  File "train.py", line 79, in main
+    trainer.train()
+  File "/opt/ml/Pytorch_template/baseline/trainer/trainer.py", line 77, in train
+    torch.save(self.model.state_dict(), f">>>>>>> {path}/epoch_{epoch}_loss_{val_loss:.3f}_acc_{val_acc:.3f}_f1_{f1:.3f}.pt")
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/serialization.py", line 376, in save
+    with _open_file_like(f, 'wb') as opened_file:
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/serialization.py", line 230, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/serialization.py", line 211, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '>>>>>>> /opt/ml/Pytorch_template/baseline/experiments/exp/2022-03-04_16:03:06/epoch_0_loss_0.347_acc_77.021_f1_0.573.pt'
+Traceback (most recent call last):
+  File "train.py", line 109, in <module>
+    main(config, logger)
+  File "train.py", line 79, in main
+    trainer.train()
+  File "/opt/ml/Pytorch_template/baseline/trainer/trainer.py", line 77, in train
+    torch.save(self.model.state_dict(), f">>>>>>> {path}/epoch_{epoch}_loss_{val_loss:.3f}_acc_{val_acc:.3f}_f1_{f1:.3f}.pt")
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/serialization.py", line 376, in save
+    with _open_file_like(f, 'wb') as opened_file:
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/serialization.py", line 230, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/opt/conda/envs/hong1/lib/python3.8/site-packages/torch/serialization.py", line 211, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: '>>>>>>> /opt/ml/Pytorch_template/baseline/experiments/exp/2022-03-04_16:03:06/epoch_0_loss_0.347_acc_77.021_f1_0.573.pt'

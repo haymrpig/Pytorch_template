@@ -1,0 +1,22 @@
+
+INFO:timm.models.helpers:Loading pretrained weights from url (https://download.pytorch.org/models/resnet18-5c106cde.pth)
+Traceback (most recent call last):
+  File "train.py", line 109, in <module>
+    main(config, logger)
+  File "train.py", line 79, in main
+    trainer.train()
+  File "/opt/ml/Pytorch_template/baseline/trainer/trainer.py", line 38, in train
+    path = os.path.join(self.config['path']['base_path'],self.config["path"]["save_dir"], time_stamp)
+  File "/opt/conda/envs/hong1/lib/python3.8/configparser.py", line 1254, in __getitem__
+    raise KeyError(key)
+KeyError: 'base_path'
+Traceback (most recent call last):
+  File "train.py", line 109, in <module>
+    main(config, logger)
+  File "train.py", line 79, in main
+    trainer.train()
+  File "/opt/ml/Pytorch_template/baseline/trainer/trainer.py", line 38, in train
+    path = os.path.join(self.config['path']['base_path'],self.config["path"]["save_dir"], time_stamp)
+  File "/opt/conda/envs/hong1/lib/python3.8/configparser.py", line 1254, in __getitem__
+    raise KeyError(key)
+KeyError: 'base_path'

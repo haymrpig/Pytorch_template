@@ -136,13 +136,13 @@ def get_log(config):
     logger.setLevel(logging.INFO)
 
     model_type  = config['net']['model']
-    base_path   = config['path']['base_path']
+    base_path   = config['path']['current_path']
     full_path   = os.path.join(base_path, 'log')
     
     if not os.path.exists(full_path):
         os.makedirs(full_path)
 
-    stream_handler = logging.FileHandler(f"full_path/{model_type}_{time.strftime('%m%d-%H-%M-%S')}.txt", 
+    stream_handler = logging.FileHandler(f"{full_path}/{model_type}_{time.strftime('%m%d-%H-%M-%S')}.txt", 
                                         mode='w', encoding='utf8')
     logger.addHandler(stream_handler)
 
@@ -161,6 +161,7 @@ def setLog(config):
                 f'Epoch: {config["net"]["epoch"]}\n'
                 f'Learning rate: {config["net"]["lr"]}\n'
                 f'Image shape: {config["net"]["img_shape"]}\n'
+                f'========={mode} Info=========\n'
                 )
 
     return logger
